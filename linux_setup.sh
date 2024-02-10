@@ -34,32 +34,20 @@ if [[ $cn_install_mode = "Y" || $cn_install_mode = "y" ]]; then
   echo "Done."
 fi
 
-# 安装一些工具
-read -p "Install tools and connect to Visual Private Network? (Y/n) " install_tools
-
-if [[ $install_tools = "Y" || $install_tools = "y" ]]; then
-  echo "Installing tools and connect to Visual Private Network..."
-  apt install -y wget net-tools sudo selinux-utils python3-pip
-  pip install hyfetch --break-system-packages
-  hyfetch &
-  wait
-  curl https://tailscale.com/install.sh | sh
-  tailscale up
-  echo "Done."
-else
-  echo "Skip installing tools."
-fi
+# 安装工具，连接VPN
+echo "Installing tools and connect to Visual Private Network..."
+apt install -y wget net-tools sudo selinux-utils python3-pip
+pip install hyfetch --break-system-packages
+hyfetch &
+wait
+curl https://tailscale.com/install.sh | sh
+tailscale up
+echo "Done."
 
 # 更新系统默认包
-read -p "Upgrade system packages? (Y/n) " upgrade_system
-
-if [[ $upgrade_system = "Y" || $upgrade_system = "y" ]]; then
-  echo "Upgrading system packages..."
-  apt upgrade -y
-  echo "Done."
-else
-  echo "Skip upgrading system packages."
-fi
+echo "Upgrading system packages..."
+apt upgrade -y
+echo "Done."
 
 # 安装1Panel
 read -p "Install 1Panel? (Y/n) " install_1panel
