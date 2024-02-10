@@ -16,7 +16,8 @@ wget "https://install.1l1.icu/load.sh" -O "/opt/ma_ss/load.sh"
 source /opt/ma_ss/load.sh
 
 # 大陆服务器模式
-read -p "Use CN install mode? (Y/n) " cn_install_mode
+echo "${CLR_CYAN}Use CN install mode? (Y/n)${CLR_NC}"
+read  cn_install_mode
 
 if [[ $cn_install_mode = "Y" || $cn_install_mode = "y" ]]; then
   CN_INSTALL_MODE=true

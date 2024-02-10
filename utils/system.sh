@@ -16,5 +16,3 @@ SYSTEM_OS_RELEASE() {
 }
 
 RELEASE=$(SYSTEM_OS_RELEASE)
-echo "System Architecture: $SYSTEM_ARCH"
-echo "Operating System: $RELEASE"
