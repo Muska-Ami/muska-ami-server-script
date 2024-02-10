@@ -1,5 +1,6 @@
 #!/bin/bash
 mkdir -p /opt/ma_ss/
+mkdir -p /opt/ma_ss/utils/
 
 if [[ `whoami` != "root" ]];then
   echo "Please use root user for install!"
@@ -11,8 +12,7 @@ apt update
 apt install wget
 
 wget "https://install.1l1.icu/load.sh" -O "/opt/ma_ss/load.sh"
-chmod +x /opt/ma_ss/load.sh
-bash /opt/ma_ss/load.sh
+source /opt/ma_ss/load.sh
 
 # 大陆服务器模式
 echo "Use CN install mode?(Y/n)"
