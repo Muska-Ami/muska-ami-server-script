@@ -1,6 +1,5 @@
 #!/bin/bash
-mkdir -p ~/.share/
-mkdir -p ~/.share/ma_ss/
+mkdir -p /opt/ma_ss/
 
 if [[ `whoami` != "root" ]];then
   echo "Please use root user for install!"
@@ -8,12 +7,12 @@ if [[ `whoami` != "root" ]];then
 fi
 
 if ! command -v curl &> /dev/null; then
-  echo "Curl not installed, exit."
+  echo "cURL not installed, exit."
   exit 1
 fi
 
-curl "https://install.1l1.icu/load.sh" -o "~/.share/ma_ss/load.sh"
-source ~/.share/ma_ss/load.sh
+curl -o "/opt/ma_ss/load.sh" "https://install.1l1.icu/load.sh"
+source /opt/ma_ss/load.sh
 
 # 大陆服务器模式
 echo "Use CN install mode?(Y/n)"
@@ -69,14 +68,14 @@ select _SEL_1PANEL in "Y" "y" "N" "n"
 do
   if [ $_SEL_1PANEL = "Y" || $_SEL_1PANEL = "y" ];then
     echo "Installing 1Panel..."
-    curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o ~/.share/ma_ss/temps/quick_start.sh
-    cd ~/.share/ma_ss/temps/
-    bash ~/.share/ma_ss/temps/quick_start.sh
+    curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o /opt/ma_ss/temps/quick_start.sh
+    cd /opt/ma_ss/temps/
+    bash /opt/ma_ss/temps/quick_start.sh
     cd ~/
     # 清理1Panel安装文件
     echo "Installed. Cleanup 1Panel cache..."
-    rm -rf ~/.share/ma_ss/temps/quick_start.sh
-    rm -rf ~/.share/ma_ss/temps/1panel*
+    rm -rf /opt/ma_ss/temps/quick_start.sh
+    rm -rf /opt/ma_ss/temps/1panel*
     echo "Cleanup success!"
     echo "Setup 1Panel rules"
     #设置1Panel规则
@@ -89,6 +88,7 @@ do
   break
 done
 
+# 安装哪吒监控
 echo "Install nezha-agent for Nezha monitor?(Y/n)"
 select _SEL_NEZHA_AGENT in "Y" "y" "N" "n"
 do
