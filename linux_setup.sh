@@ -20,8 +20,6 @@ echo -e "${CLR_CYAN}Use CN install mode? (Y/n)${CLR_NC}"
 read -p ">" cn_install_mode
 
 if [[ $cn_install_mode = "Y" || $cn_install_mode = "y" ]]; then
-  CN_INSTALL_MODE=true
-
   # 配置清华源
   echo -e "${CLR_BLUE}Setup APT Tsinghua Tuna mirror...${CLR_NC}"
   apt install -y apt-transport-https ca-certificates
