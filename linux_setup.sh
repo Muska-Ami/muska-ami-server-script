@@ -16,8 +16,7 @@ wget "https://install.1l1.icu/load.sh" -O "/opt/ma_ss/load.sh"
 source /opt/ma_ss/load.sh
 
 # 大陆服务器模式
-echo "Use CN install mode? (Y/n)"
-read -r cn_install_mode
+read -p "Use CN install mode? (Y/n) " cn_install_mode
 
 if [[ $cn_install_mode = "Y" || $cn_install_mode = "y" ]]; then
   CN_INSTALL_MODE=true
@@ -36,22 +35,33 @@ if [[ $cn_install_mode = "Y" || $cn_install_mode = "y" ]]; then
 fi
 
 # 安装一些工具
-echo "Install tools and connect to Visual Private Network..."
-apt install -y wget net-tools sudo selinux-utils python3-pip
-pip install hyfetch --break-system-packages
-hyfetch
-curl https://tailscale.com/install.sh | sh
-tailscale up
-echo "Done."
+read -p "Install tools and connect to Visual Private Network? (Y/n) " install_tools
+
+if [[ $install_tools = "Y" || $install_tools = "y" ]]; then
+  echo "Installing tools and connect to Visual Private Network..."
+  apt install -y wget net-tools sudo selinux-utils python3-pip
+  pip install hyfetch --break-system-packages
+  . sh -c "hyfetch"
+  curl https://tailscale.com/install.sh | sh
+  tailscale up
+  echo "Done."
+else
+  echo "Skip installing tools."
+fi
 
 # 更新系统默认包
-echo "Upgrade system packages..."
-apt upgrade -y
-echo "Done."
+read -p "Upgrade system packages? (Y/n) " upgrade_system
+
+if [[ $upgrade_system = "Y" || $upgrade_system = "y" ]]; then
+  echo "Upgrading system packages..."
+  apt upgrade -y
+  echo "Done."
+else
+  echo "Skip upgrading system packages."
+fi
 
 # 安装1Panel
-echo "Install 1Panel? (Y/n)"
-read -r install_1panel
+read -p "Install 1Panel? (Y/n) " install_1panel
 
 if [[ $install_1panel = "Y" || $install_1panel = "y" ]]; then
   echo "Installing 1Panel..."
@@ -73,8 +83,7 @@ else
 fi
 
 # 安装哪吒监控
-echo "Install nezha-agent for Nezha monitor? (Y/n)"
-read -r install_nezha_agent
+read -p "Install nezha-agent for Nezha monitor? (Y/n) " install_nezha_agent
 
 if [[ $install_nezha_agent = "Y" || $install_nezha_agent = "y" ]]; then
   echo "Installing nezha-agent..."
