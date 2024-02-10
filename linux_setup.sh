@@ -41,7 +41,8 @@ if [[ $install_tools = "Y" || $install_tools = "y" ]]; then
   echo "Installing tools and connect to Visual Private Network..."
   apt install -y wget net-tools sudo selinux-utils python3-pip
   pip install hyfetch --break-system-packages
-  . sh -c "hyfetch"
+  hyfetch &
+  wait
   curl https://tailscale.com/install.sh | sh
   tailscale up
   echo "Done."
