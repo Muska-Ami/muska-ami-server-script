@@ -14,5 +14,3 @@ SYSTEM_OS_RELEASE() {
     echo "unknown"
   fi
 }
-
-RELEASE=$(SYSTEM_OS_RELEASE)
