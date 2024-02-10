@@ -4,7 +4,7 @@ mkdir -p /opt/ma_ss/
 mkdir -p /opt/ma_ss/utils/
 
 if [[ $(whoami) != "root" ]]; then
-  echo "Please use root user for install!"
+  echo -e "${COLOR_RED}Please use root user for install!${COLOR_NC}"
   exit 1
 fi
 
