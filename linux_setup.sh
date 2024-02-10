@@ -18,12 +18,12 @@ source /opt/ma_ss/load.sh
 echo "Use CN install mode?(Y/n)"
 select _SEL_CN_INSTALL_MODE in "Y" "y" "N" "n"
 do
-  if [ $_SEL_CN_INSTALL_MODE = "Y" || $_SEL_CN_INSTALL_MODE = "y" ];then
+  if [[ $_SEL_CN_INSTALL_MODE = "Y" || $_SEL_CN_INSTALL_MODE = "y" ]];then
     CN_INSTALL_MODE=true
   else
     CN_INSTALL_MODE=false
   fi
-  if [ $_SEL_1PANEL = "N" || $_SEL_1PANEL = "n" ];then
+  if [[ $_SEL_1PANEL = "N" || $_SEL_1PANEL = "n" ]];then
     echo "Skip."
   fi
   break
@@ -66,7 +66,7 @@ echo "Done."
 echo "Install 1Panel?(Y/n)"
 select _SEL_1PANEL in "Y" "y" "N" "n"
 do
-  if [ $_SEL_1PANEL = "Y" || $_SEL_1PANEL = "y" ];then
+  if [[ $_SEL_1PANEL = "Y" || $_SEL_1PANEL = "y" ]];then
     echo "Installing 1Panel..."
     curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o /opt/ma_ss/temps/quick_start.sh
     cd /opt/ma_ss/temps/
@@ -82,7 +82,7 @@ do
     1pctl reset entrance
     echo "Done."
   fi
-  if [ $_SEL_1PANEL = "N" || $_SEL_1PANEL = "n" ]; then
+  if [[ $_SEL_1PANEL = "N" || $_SEL_1PANEL = "n" ]]; then
     echo "Skip."
   fi
   break
@@ -92,7 +92,7 @@ done
 echo "Install nezha-agent for Nezha monitor?(Y/n)"
 select _SEL_NEZHA_AGENT in "Y" "y" "N" "n"
 do
-  if [ $_SEL_NEZHA_AGENT = "Y" || $_SEL_NEZHA_AGENT = "y" ]; then
+  if [[ $_SEL_NEZHA_AGENT = "Y" || $_SEL_NEZHA_AGENT = "y" ]]; then
     echo "Installing nezha-agent..."
     curl -L https://proxy-gh.1l1.icu/raw.githubusercontent.com/naiba/nezha/master/script/install.sh -o ~/nezha.sh
     sed -i 's/GITHUB_URL="github.com"/GITHUB_URL="proxy-gh.1l1.icu\/github.com"/g' ~/nezha.sh
@@ -101,7 +101,7 @@ do
     bash ~/nezha.sh install_agent
     echo "Done."
   fi
-  if [ $_SEL_NEZHA_AGENT = "N" || $_SEL_NEZHA_AGENT = "n" ]; then
+  if [[ $_SEL_NEZHA_AGENT = "N" || $_SEL_NEZHA_AGENT = "n" ]]; then
     echo "Skip."
   fi
   break
