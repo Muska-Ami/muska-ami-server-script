@@ -1,15 +1,20 @@
 #!/bin/bash
-SYSTEM_ARCH=`uname -a`
+
+SYSTEM_ARCH=$(uname -a)
 
 SYSTEM_OS_RELEASE() {
-  _OS_RELEASE=`cat /etc/*-release`
-  if [[ $_OS_RELEASE | grep -Eq "Ubuntu" ]];then
-    return "ubuntu"
-  elif [[ $_OS_RELEASE | grep -Eq "Debian" ]];then
-    return "debian"
-  elif [[ $_OS_RELEASE | grep -Eq "Kali" ]];then
-    return "kali"
+  _OS_RELEASE=$(cat /etc/*-release)
+  if [[ $_OS_RELEASE =~ "Ubuntu" ]]; then
+    echo "ubuntu"
+  elif [[ $_OS_RELEASE =~ "Debian" ]]; then
+    echo "debian"
+  elif [[ $_OS_RELEASE =~ "Kali" ]]; then
+    echo "kali"
   else
-    return "unknown"
+    echo "unknown"
   fi
 }
+
+RELEASE=$(SYSTEM_OS_RELEASE)
+echo "System Architecture: $SYSTEM_ARCH"
+echo "Operating System: $RELEASE"

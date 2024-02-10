@@ -1,4 +1,5 @@
 #!/bin/bash
+
 mkdir -p /opt/ma_ss/
 mkdir -p /opt/ma_ss/utils/
 
