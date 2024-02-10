@@ -6,12 +6,11 @@ if [[ `whoami` != "root" ]];then
   exit 1
 fi
 
-if ! command -v curl &> /dev/null; then
-  echo "cURL not installed, exit."
-  exit 1
-fi
+# Install wget
+apt update
+apt install wget
 
-curl -o "/opt/ma_ss/load.sh" "https://install.1l1.icu/load.sh"
+wget "https://install.1l1.icu/load.sh" -O "/opt/ma_ss/load.sh"
 source /opt/ma_ss/load.sh
 
 # 大陆服务器模式
@@ -40,9 +39,9 @@ if [$CN_INSTALL_MODE];then
   apt install apt-transport-https ca-certificates
   rm -rf /etc/apt/sources.list
   if [[ `SYSTEM_OS_RELEASE` = "debian" || `SYSTEM_OS_RELEASE` = "kali" ]];then
-    curl "https://install.1l1.icu/templates/apt/tsinghua-debian.list" -o "/etc/apt/sources.list"
+    wget "https://install.1l1.icu/templates/apt/tsinghua-debian.list" -O "/etc/apt/sources.list"
   elif [[ `SYSTEM_OS_RELEASE` = "ubuntu" ]];then
-    curl "https://install.1l1.icu/templates/apt/tsinghua-ubuntu.list" -o "/etc/apt/sources.list"
+    wget "https://install.1l1.icu/templates/apt/tsinghua-ubuntu.list" -O "/etc/apt/sources.list"
   fi
   apt update
   echo "Done."
