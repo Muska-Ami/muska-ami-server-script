@@ -1,6 +1,7 @@
 #!/bin/bash
 
 mkdir -p /opt/ma_ss/
+mkdir -p /opt/ma_ss/temps/
 mkdir -p /opt/ma_ss/utils/
 mkdir -p /opt/ma_ss/cores/
 
@@ -15,6 +16,8 @@ apt install -y wget
 
 wget "https://install.1l1.icu/load.sh" -O "/opt/ma_ss/load.sh" -q
 source /opt/ma_ss/load.sh
+
+tools
 
 # 配置清华源
 echo -e "${CLR_CYAN}Use CN install mode? (Y/n)${CLR_GRAY}"
