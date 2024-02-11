@@ -16,7 +16,6 @@ wget "https://install.1l1.icu/load.sh" -O "/opt/ma_ss/load.sh"
 source /opt/ma_ss/load.sh
 
 # 大陆服务器模式
-:mkt_cn_install_mode
 echo -e "${CLR_CYAN}Use CN install mode? (Y/n)${CLR_NC}"
 read -p ">" cn_install_mode
 
@@ -27,7 +26,7 @@ if [[ $cn_install_mode = "Y" || $cn_install_mode = "y" ]]; then
 elif [[ $cn_install_mode = "N" || $cn_install_mode = "n" ]]; then
   echo -e "${CLR_YELLOW}Skip CN install step.${CLR_NC}"
 else
-  goto mkt_cn_install_mode
+  echo -e "${CLR_RED}Expected Y/n!${CLR_NC}"
 fi
 
 # 安装工具
@@ -49,7 +48,6 @@ apt upgrade -y
 echo -e "${CLR_GREEN}Done.${CLR_NC}"
 
 # Tailscale
-:mkt_install_tailscale
 echo -e "${CLR_CYAN}Connect to Tailscale Visual Private Network? (Y/n)${CLR_NC}"
 read -p ">" connect_tailscale_vpn
 
@@ -59,11 +57,10 @@ if [[ $connect_tailscale_vpn = "Y" || $connect_tailscale_vpn = "y" ]]; then
 elif [[ $connect_tailscale_vpn = "N" || $connect_tailscale_vpn = "n" ]]; then
   echo -e "${CLR_YELLOW}Skip Tailscale installation.${CLR_NC}"
 else
-  goto mkt_install_tailscale
+  echo -e "${CLR_RED}Expected Y/n!${CLR_NC}"
 fi
 
 # 安装1Panel
-:mkt_install_1panel
 echo -e "${CLR_CYAN}Install 1Panel? (Y/n)${CLR_NC}"
 read -p ">" install_1panel
 
@@ -73,11 +70,10 @@ if [[ $install_1panel = "Y" || $install_1panel = "y" ]]; then
 elif [[ $install_1panel = "N" || $install_1panel = "n" ]]; then
   echo -e "${CLR_YELLOW}Skip 1Panel installation.${CLR_NC}"
 else
-  goto mkt_install_1panel
+  echo -e "${CLR_RED}Expected Y/n!${CLR_NC}"
 fi
 
 # 安装哪吒监控
-:mkt_install_nezha_agent
 echo -e "${CLR_CYAN}Install nezha-agent for Nezha monitor? (Y/n)${CLR_NC}"
 read -p ">" install_nezha_agent
 
@@ -87,7 +83,7 @@ if [[ $install_nezha_agent = "Y" || $install_nezha_agent = "y" ]]; then
 elif [[ $install_nezha_agent = "N" || $install_nezha_agent = "n" ]]; then
   echo -e "${CLR_YELLOW}Skip nezha-agent installation.${CLR_NC}"
 else
-  goto mkt_install_nezha_agent
+  echo -e "${CLR_RED}Expected Y/n!${CLR_NC}"
 fi
 
 # 清理缓存
