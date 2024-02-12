@@ -37,8 +37,6 @@ fi
 echo -e "${CLR_BLUE}Installing tools...${CLR_GRAY}"
 apt install -y wget net-tools sudo selinux-utils python3-pip vim
 pip install hyfetch --break-system-packages
-hyfetch &
-wait
 
 # NTP对时
 echo -e "${CLR_BLUE}Sync network time...${CLR_GRAY}"
@@ -96,4 +94,6 @@ fi
 # 清理缓存
 echo -e "${CLR_PURPLE}Cleanup cache...${CLR_GRAY}"
 rm -rf /opt/ma_ss/
-echo -e "${CLR_GREEN}Done.${CLR_GRAY}"
+echo -e "${CLR_GREEN}Done.${CLR_NC}"
+
+hyfetch
