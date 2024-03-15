@@ -1,13 +1,13 @@
 #!/bin/bash
 
 function info {
-    echo -e "[${CLR_GREEN}INFO${CLR_NC}]$1"
+    echo -e "[${CLR_GREEN}INFO${CLR_NC}] $1"
 }
 function warn {
-    echo -e "[${CLR_YELLOW}WARN${CLR_NC}]$1"
+    echo -e "[${CLR_YELLOW}WARN${CLR_NC}] $1"
 }
 function error {
-    echo -e "[${CLR_RED}ERROR${CLR_NC}]$1"
+    echo -e "[${CLR_RED}ERROR${CLR_NC}] $1"
 }
 
 function goto {

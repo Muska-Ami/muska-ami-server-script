@@ -23,6 +23,7 @@ tools
 clear
 
 back=${1:-"back"}
+back:
 echo "------====== Muska_Ami's ServerScript ======------"
 echo " 1.   设置APT清华源"
 echo " 2.   安装基本工具(wget net-tools sudo selinux-utils vim)"
