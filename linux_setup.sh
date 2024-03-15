@@ -12,7 +12,7 @@ mkdir -p /opt/ma_ss/cores/
 
 # Install wget
 apt update
-apt install -y wget
+apt install wget curl -y
 if [ -f "/opt/ma_ss/load.sh" ];then
   wget "https://install.1l1.icu/load.sh" -O "/opt/ma_ss/load.sh" -q
 fi
