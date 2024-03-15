@@ -2,8 +2,10 @@
 
 tools() {
   if [[ $1 = "clean" ]]; then
-    wget "https://install.1l1.icu/utils/tools/clean.sh" -O "/opt/temps/clean.sh"
-    source /opt/temps/clean.sh
+    if [ -f "/opt/ma_ss/temps/clean.sh" ];then
+      wget "https://install.1l1.icu/utils/tools/clean.sh" -O "/opt/ma_ss/temps/clean.sh"
+    fi
+    source /opt/ma_ss/temps/clean.sh
   elif [[ $1 = "help" ]]; then
     echo "------====== Help ======------"
     echo "clean - 清理脚本缓存"
