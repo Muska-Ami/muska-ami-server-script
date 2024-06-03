@@ -2,12 +2,16 @@
 
 echo -e "${COLOR_BLUE}请选择：${COLOR_NC}"
 echo -e "1. ${COLOR_YELLOW}neofetch${COLOR_NC}"
-echo -e "2. ${COLOR_YELLOW}hyfetch${COLOR_NC}"
+echo -e "2. ${COLOR_YELLOW}neofetch${COLOR_NC}"
+echo -e "3. ${COLOR_YELLOW}hyfetch${COLOR_NC}"
 read -p ">" nhfetch_sel
 if [ "$nhfetch_sel" -eq "1" ]; then
   apt update
   apt install neofetch -y
 elif [ "$nhfetch_sel" -eq "2" ]; then
+  apt update
+  apt install fastfetch -y
+elif [ "$nhfetch_sel" -eq "3" ]; then
   echo "正在安装 pip3..."
   apt update
   apt install python3-pip -y
