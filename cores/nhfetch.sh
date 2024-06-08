@@ -2,7 +2,7 @@
 
 echo -e "${COLOR_BLUE}请选择：${COLOR_NC}"
 echo -e "1. ${COLOR_YELLOW}neofetch${COLOR_NC}"
-echo -e "2. ${COLOR_YELLOW}neofetch${COLOR_NC}"
+echo -e "2. ${COLOR_YELLOW}fastfetch${COLOR_NC}"
 echo -e "3. ${COLOR_YELLOW}hyfetch${COLOR_NC}"
 read -p ">" nhfetch_sel
 if [ "$nhfetch_sel" -eq "1" ]; then
