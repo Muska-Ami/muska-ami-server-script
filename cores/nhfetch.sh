@@ -9,8 +9,8 @@ if [ "$nhfetch_sel" -eq "1" ]; then
   apt update
   apt install neofetch -y
 elif [ "$nhfetch_sel" -eq "2" ]; then
-  apt update
-  apt install fastfetch -y
+  curl https://proxy-gh.1l1.icu/github.com/fastfetch-cli/fastfetch/releases/download/2.22.0/fastfetch-linux-amd64.deb -o fastfetch-linux-amd64.deb
+  apt install ./fastfetch-linux-amd64.deb -y
 elif [ "$nhfetch_sel" -eq "3" ]; then
   echo "正在安装 pip3..."
   apt update

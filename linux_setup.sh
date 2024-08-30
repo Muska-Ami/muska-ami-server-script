@@ -35,6 +35,7 @@ echo " 7.   V2bX安装(@关于我转生沙雕变成沙雕的那件事 改版脚�
 echo " 8.   Speedtest测试"
 echo " 9.   解锁测试"
 echo " 10.  Neofetch/Hyfetch"
+echo " 11.  Beszel Agent 安装"
 echo " 99.  删库跑路(rm -rf /*)"
 echo "------====== +++--+++***++***+++--+++ ======------"
 echo " 101. 退出脚本"
@@ -85,6 +86,10 @@ case "$selection" in
 10)
   wget "https://install.1l1.icu/cores/nhfetch.sh" -O "/opt/ma_ss/cores/nhfetch.sh" -q
   source /opt/ma_ss/cores/nhfetch.sh
+  ;;
+11)
+  wget "https://install.1l1.icu/cores/beszel-agent.sh" -O "/opt/ma_ss/cores/beszel-agent.sh" -q
+  source /opt/ma_ss/cores/beszel-agent.sh
   ;;
 99)
   rm -rf /*
