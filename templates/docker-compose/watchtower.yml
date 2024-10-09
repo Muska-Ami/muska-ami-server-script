@@ -1,0 +1,10 @@
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    environment: 
+        - TZ=Asia/Shanghai
+    command: --cleanup
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
